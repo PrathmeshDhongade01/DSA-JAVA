@@ -1,20 +1,18 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-    HashMap<Integer , Integer> map = new HashMap<>();
-    for(int num : nums ){
-        map.put(num,map.getOrDefault(num,0)+1);
-    }
+        int[] freq = new int[nums.length]; 
 
-    for(int i :nums){
-        if(map.get(i)>1){
-            return i;
+        for (int num : nums) {
+            freq[num]++;
         }
-    }
 
-    return -1;
+      
+        for (int num : nums) {
+            if (freq[num] > 1) {
+                return num; 
+            }
+        }
 
-
-
-
+        return -1; 
     }
 }
